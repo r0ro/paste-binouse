@@ -79,7 +79,7 @@ PasteHandler::handle(mimosa::http::RequestReader & request,
 
     int64_t row_id = sqlite3_last_insert_rowid(Db::handle());
     Purge::instance().newPaste(it->second.size());
-    return redirect(response, mimosa::format::str("/view?id=%d", row_id));
+    return redirect(response, mimosa::format::str("view?id=%d", row_id));
   }
 
   auto tpl = loadTpl("page.html");
